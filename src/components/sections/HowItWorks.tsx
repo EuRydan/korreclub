@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { DROP } from "@/lib/drop";
 import SystemGrid from "@/components/ui/SystemGrid";
 
@@ -11,9 +11,13 @@ const container = {
   },
 };
 
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "linear" } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.3, ease: "easeOut" as any },
+  },
 };
 
 export default function HowItWorks() {
