@@ -16,7 +16,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "KORRE CLUB — DROP 001 · PRIMEIRA MARCHA",
+  title: "KORRE CLUB — DROP 001 · PRIMEIRA KORRERIA",
   description:
     "Clube de desafios de corrida. 70 medalhas numeradas em pré-venda. Corra, valide pelo Strava, receba sua medalha colecionável.",
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     "medalha colecionável",
   ],
   openGraph: {
-    title: "KORRE CLUB — DROP 001 · PRIMEIRA MARCHA",
+    title: "KORRE CLUB — DROP 001 · PRIMEIRA KORRERIA",
     description:
       "70 medalhas numeradas. Depois acabou. Garanta a sua no lote fundador.",
     type: "website",

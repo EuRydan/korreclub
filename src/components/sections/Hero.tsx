@@ -36,7 +36,7 @@ export default function Hero() {
           <div className="md:col-span-9 flex flex-col justify-center pt-12 md:pt-32">
             <h1 className="font-[family-name:var(--font-display)] text-[#141414] text-6xl md:text-[9rem] font-black uppercase tracking-[-0.04em] leading-[0.85] mb-20">
               PRIMEIRA <br />
-              <span className="text-[#1351AA]">MARCHA</span>
+              <span className="text-[#1351AA]">KORRERIA</span>
             </h1>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 mt-8">

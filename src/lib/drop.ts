@@ -1,6 +1,6 @@
 export const DROP = {
-  name: "DROP 001 · PRIMEIRA MARCHA",
-  slug: "drop-001-primeira-marcha",
+  name: "DROP 001 · PRIMEIRA KORRERIA",
+  slug: "drop-001-primeira-korreria",
   totalMedals: 70,
   soldMedals: 37,
 

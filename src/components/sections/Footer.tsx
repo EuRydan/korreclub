@@ -11,7 +11,7 @@ export default function Footer() {
             </span>
             <p className="font-[family-name:var(--font-inter)] text-white/50 text-sm max-w-xs leading-relaxed">
               Sistema de desafios e recompensas físicas.
-              <br /> Drop 001 · Primeira Marcha.
+              <br /> Drop 001 · Primeira Korreria.
             </p>
           </div>
 
