@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { DROP } from "@/lib/drop";
 import SystemGrid from "@/components/ui/SystemGrid";
 
@@ -32,24 +33,26 @@ export default function Medal() {
           </ul>
         </div>
 
-        {/* Abstract Graphic representation instead of glowing medal */}
-        <div className="w-full md:w-1/2 flex items-center justify-center p-8 bg-[#E3E2DE] border border-[#C7C7C7] min-h-[400px]">
-          <div className="relative w-[300px] h-[300px] border-2 border-[#141414] rounded-full flex items-center justify-center bg-transparent">
-            {/* Geometric accents */}
-            <div className="absolute inset-4 border border-[#141414] border-dashed rounded-full" />
-            <div className="absolute w-[300px] h-[1px] bg-[#141414]" />
-            <div className="absolute w-[1px] h-[300px] bg-[#141414]" />
-            
-            <div className="bg-[#141414] w-[120px] h-[120px] rounded-full flex flex-col items-center justify-center z-10 text-[#E3E2DE]">
-              <span className="font-[family-name:var(--font-display)] text-4xl font-bold tracking-tight">001</span>
-              <span className="font-[family-name:var(--font-inter)] text-[10px] uppercase tracking-wider text-white/50">
-                / 070
-              </span>
-            </div>
-          </div>
-        </div>
+        {/* Medal Image */}
+        <motion.div
+          className="w-full md:w-1/2 flex items-center justify-center p-8 min-h-[400px]"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <Image
+            src="/medal.png"
+            alt="Medalha Korreria Drop 001 — Zamac premium dourada com detalhes em azul"
+            width={500}
+            height={500}
+            className="w-full max-w-[500px] h-auto object-contain drop-shadow-2xl"
+            priority
+          />
+        </motion.div>
 
       </div>
     </SystemGrid>
   );
 }
+
