@@ -22,7 +22,7 @@ function StepDot({ progress, index, total, number }: {
   const shadowColor = useTransform(
     progress,
     [threshold - 0.05, threshold],
-    ["0 0 0 2px #C7C7C7", "0 0 0 2px #1351AA, 0 0 20px rgba(19,81,170,0.4)"]
+    ["0 0 0 2px #C7C7C7", "0 0 0 2px #1351AA"]
   );
 
   return (
