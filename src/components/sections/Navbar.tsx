@@ -25,9 +25,26 @@ export default function Navbar() {
 
           {/* Links (Cols 10-12) */}
           <div className="hidden md:flex md:col-span-3 justify-end items-center gap-6">
-            <a href="#sistema" className="font-[family-name:var(--font-inter)] text-sm font-semibold text-[#141414] hover:text-[#1351AA] transition-colors">
-              Sistema
-            </a>
+            <div className="relative group py-2">
+              <button className="flex items-center gap-1 font-[family-name:var(--font-inter)] text-sm font-semibold text-[#141414] hover:text-[#1351AA] transition-colors">
+                Desafios
+                <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {/* Menu Suspenso Navbar */}
+              <div className="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                <div className="bg-[#E3E2DE] border border-[#C7C7C7] shadow-lg w-48 flex flex-col text-left py-1 rounded-sm">
+                  <a href="#desafios" className="px-4 py-3 text-sm font-[family-name:var(--font-inter)] text-[#141414] hover:bg-[#C7C7C7]/50 hover:text-[#1351AA] transition-colors">
+                    Atuais
+                  </a>
+                  <a href="#desafios" className="px-4 py-3 text-sm font-[family-name:var(--font-inter)] text-[#141414] hover:bg-[#C7C7C7]/50 hover:text-[#1351AA] transition-colors">
+                    Em Breve
+                  </a>
+                </div>
+              </div>
+            </div>
             <a href="#faq" className="font-[family-name:var(--font-inter)] text-sm font-semibold text-[#141414] hover:text-[#1351AA] transition-colors">
               Dúvidas
             </a>

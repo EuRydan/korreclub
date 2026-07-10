@@ -23,26 +23,9 @@ export default function HowItWorks() {
       <div className="mx-auto w-[90%] md:w-[85%] max-w-[1440px]">
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-3 mb-20 md:mb-32 border-b border-[#C7C7C7] pb-10">
-          <div className="relative group inline-block z-20">
-            <button className="flex items-center gap-1 font-[family-name:var(--font-inter)] text-[10px] uppercase tracking-[0.3em] font-bold text-[#1351AA]">
-              Desafios
-              <svg className="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-
-            {/* Menu Suspenso */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-              <div className="bg-white border border-[#C7C7C7] shadow-lg w-40 flex flex-col text-left py-1">
-                <a href="#desafios" className="px-4 py-2 text-xs font-[family-name:var(--font-inter)] text-[#141414] hover:bg-[#E3E2DE] hover:text-[#1351AA] transition-colors">
-                  Atuais
-                </a>
-                <a href="#desafios" className="px-4 py-2 text-xs font-[family-name:var(--font-inter)] text-[#141414] hover:bg-[#E3E2DE] hover:text-[#1351AA] transition-colors">
-                  Em Breve
-                </a>
-              </div>
-            </div>
-          </div>
+          <span className="font-[family-name:var(--font-inter)] text-[10px] uppercase tracking-[0.3em] font-bold text-[#1351AA]">
+            Sistema
+          </span>
           <h2 className="font-[family-name:var(--font-display)] text-[#141414] text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-[-0.03em] leading-[0.85]">
             COMO
             <br />
