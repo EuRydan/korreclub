@@ -1,6 +1,8 @@
 import Navbar from "@/components/sections/Navbar";
 import Banner from "@/components/sections/Banner";
 import HowItWorks from "@/components/sections/HowItWorks";
+import AvailableChallenges from "@/components/sections/AvailableChallenges";
+import Faq from "@/components/sections/Faq";
 import Footer from "@/components/sections/Footer";
 
 export default function Home() {
@@ -9,6 +11,8 @@ export default function Home() {
       <Navbar />
       <Banner />
       <HowItWorks />
+      <AvailableChallenges />
+      <Faq />
       <Footer />
     </main>
   );
