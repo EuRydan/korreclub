@@ -68,8 +68,74 @@ export default function HowItWorks() {
           </h2>
         </div>
 
-        {/* Timeline */}
-        <div ref={containerRef} className="relative">
+        {/* ═══ MOBILE: Stacked blocks ═══ */}
+        <div className="flex flex-col gap-12 md:hidden">
+          {DROP.steps.map((step, i) => (
+            <motion.div
+              key={step.number}
+              className="relative bg-[#DCDBD7] rounded-sm overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.05 }}
+            >
+              {/* Step image */}
+              <div className="relative w-full aspect-[16/9] overflow-hidden">
+                <Image
+                  src={`/${step.number.replace("0", "")}.jpeg`}
+                  alt={step.title}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                />
+                {/* Step number badge */}
+                <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-[#1351AA] flex items-center justify-center shadow-lg">
+                  <span className="font-[family-name:var(--font-display)] text-white text-xs font-bold">
+                    {step.number}
+                  </span>
+                </div>
+              </div>
+
+              {/* Text content */}
+              <div className="p-6">
+                <h3 className="font-[family-name:var(--font-display)] text-[#141414] text-xl font-bold uppercase tracking-[-0.02em] leading-tight mb-3">
+                  {step.title}
+                </h3>
+
+                {step.description && (
+                  <p className="font-[family-name:var(--font-inter)] text-[#7A7A7A] text-sm leading-relaxed">
+                    {step.description}
+                  </p>
+                )}
+
+                {"hasButton" in step && step.hasButton && (
+                  <div className="mt-5">
+                    <a
+                      href={"buttonHref" in step ? step.buttonHref : "#"}
+                      className="inline-flex items-center gap-3 px-6 py-3 bg-[#1351AA] text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-[#0f4490] transition-colors duration-300 group"
+                    >
+                      <span>
+                        {"buttonLabel" in step ? step.buttonLabel : "ACESSAR"}
+                      </span>
+                      <svg
+                        className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path strokeLinecap="square" d="M5 12h14M13 6l6 6-6 6" />
+                      </svg>
+                    </a>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* ═══ DESKTOP: Interactive timeline ═══ */}
+        <div ref={containerRef} className="relative hidden md:block">
           {/* Background line (gray) */}
           <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-[#C7C7C7]" />
 
@@ -79,41 +145,41 @@ export default function HowItWorks() {
             style={{ scaleY }}
           />
 
-          <div className="flex flex-col gap-24 md:gap-40">
+          <div className="flex flex-col gap-40">
             {DROP.steps.map((step, i) => {
               const isEven = i % 2 === 0;
 
               return (
                 <motion.div
                   key={step.number}
-                  className="relative grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-6 md:gap-0"
+                  className="relative grid grid-cols-[1fr_auto_1fr] items-center"
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.7, ease: "easeOut" }}
                 >
-                  {/* Left content */}
+                  {/* Text content */}
                   <div
-                    className={`md:pr-16 lg:pr-24 ${isEven
-                        ? "order-1 md:text-right"
-                        : "order-1 md:order-3 md:text-left md:pl-16 lg:pl-24 md:pr-0"
+                    className={`${isEven
+                        ? "order-1 text-right pr-16 lg:pr-24"
+                        : "order-3 text-left pl-16 lg:pl-24"
                       }`}
                   >
-                    <h3 className="font-[family-name:var(--font-display)] text-[#141414] text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[-0.02em] leading-tight mb-4">
+                    <h3 className="font-[family-name:var(--font-display)] text-[#141414] text-3xl lg:text-4xl font-bold uppercase tracking-[-0.02em] leading-tight mb-4">
                       {step.title}
                     </h3>
 
                     {step.description && (
-                      <p className="font-[family-name:var(--font-inter)] text-[#7A7A7A] text-sm md:text-base leading-relaxed max-w-md inline-block">
+                      <p className="font-[family-name:var(--font-inter)] text-[#7A7A7A] text-base leading-relaxed max-w-md inline-block">
                         {step.description}
                       </p>
                     )}
 
                     {"hasButton" in step && step.hasButton && (
-                      <div className={`mt-6 ${isEven ? "md:flex md:justify-end" : ""}`}>
+                      <div className={`mt-6 ${isEven ? "flex justify-end" : ""}`}>
                         <a
                           href={"buttonHref" in step ? step.buttonHref : "#"}
-                          className="inline-flex items-center gap-3 px-6 py-3 bg-[#1351AA] text-white text-xs md:text-sm font-bold uppercase tracking-[0.15em] hover:bg-[#0f4490] transition-colors duration-300 group"
+                          className="inline-flex items-center gap-3 px-6 py-3 bg-[#1351AA] text-white text-sm font-bold uppercase tracking-[0.15em] hover:bg-[#0f4490] transition-colors duration-300 group"
                         >
                           <span>
                             {"buttonLabel" in step ? step.buttonLabel : "ACESSAR"}
@@ -142,8 +208,7 @@ export default function HowItWorks() {
 
                   {/* Image side */}
                   <div
-                    className={`hidden md:block ${isEven ? "order-3 pl-16 lg:pl-24" : "order-1 pr-16 lg:pr-24"
-                      }`}
+                    className={`${isEven ? "order-3 pl-16 lg:pl-24" : "order-1 pr-16 lg:pr-24"}`}
                   >
                     <div className="relative w-full aspect-[16/10] overflow-hidden rounded-sm">
                       <Image
@@ -151,7 +216,7 @@ export default function HowItWorks() {
                         alt={step.title}
                         fill
                         className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 45vw"
+                        sizes="45vw"
                       />
                     </div>
                   </div>
@@ -161,7 +226,7 @@ export default function HowItWorks() {
 
             {/* Final checkmark dot */}
             <div className="relative flex justify-center">
-              <div className="relative z-10 w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#1351AA] flex items-center justify-center border-4 border-[#E3E2DE] shadow-[0_0_0_2px_#1351AA]/30">
+              <div className="relative z-10 w-14 h-14 rounded-full bg-[#1351AA] flex items-center justify-center border-4 border-[#E3E2DE] shadow-[0_0_0_2px_#1351AA]/30">
                 <svg
                   className="w-5 h-5 text-white"
                   fill="none"
