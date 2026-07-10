@@ -115,7 +115,7 @@ export default function HowItWorks() {
                   />
                 </motion.div>
               );
-            }))}
+            })}
 
             {/* Final checkmark dot */}
             <div className="relative flex justify-center">
