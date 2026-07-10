@@ -6,23 +6,29 @@ export const DROP = {
   steps: [
     {
       number: "01",
-      title: "ESCOLHA SUA DISTÂNCIA",
-      description: "3Km, 5Km, 10Km ou 21Km — você decide o nível do desafio.",
+      title: "ESCOLHA O SEU DESAFIO",
+      description: "",
     },
     {
       number: "02",
-      title: "CORRA ONDE QUISER",
-      description: "Na rua, trilha, esteira. Qualquer lugar, qualquer hora.",
+      title: "ACOMPANHE SEU PROGRESSO",
+      description:
+        "Use qualquer rastreador de atividades físicas ou insira sua atividade manualmente no aplicativo Korreclub para ver seu progresso em tempo real e descobrir os segredos exclusivos do desafio ao longo do caminho.",
     },
     {
       number: "03",
-      title: "VALIDE PELO STRAVA",
-      description: "Conecte seu Strava e a validação é automática.",
+      title: "REGISTRE SUA ATIVIDADE",
+      description:
+        "Após completar, envie um print do resultado do seu app de corrida (Strava, Nike Run, Garmin, Apple Watch, etc.) no nosso formulário.",
+      hasButton: true,
+      buttonLabel: "ABRIR FORMULÁRIO",
+      buttonHref: "#formulario",
     },
     {
       number: "04",
-      title: "RECEBA EM CASA",
-      description: "Sua medalha numerada chega na porta com frete incluso.",
+      title: "RECEBA SEU KIT EM CASA",
+      description:
+        "Em até 7 dias úteis após a validação, o seu kit com medalha + camiseta (quando aplicável) sai para envio. Você recebe o código de rastreio por e-mail para acompanhar a entrega.",
     },
   ],
 } as const;
