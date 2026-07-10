@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
+import Image from "next/image";
 import { DROP } from "@/lib/drop";
 
 export default function HowItWorks() {
@@ -106,11 +107,21 @@ export default function HowItWorks() {
                     </div>
                   </div>
 
-                  {/* Right content (empty spacer for alternating layout) */}
+                  {/* Image side */}
                   <div
-                    className={`hidden md:block ${isEven ? "order-3" : "order-1 md:pr-16 lg:pr-24 md:text-right"
+                    className={`hidden md:block ${isEven ? "order-3 pl-16 lg:pl-24" : "order-1 pr-16 lg:pr-24"
                       }`}
-                  />
+                  >
+                    <div className="relative w-full aspect-[16/10] overflow-hidden rounded-sm">
+                      <Image
+                        src={`/${step.number.replace("0", "")}.jpeg`}
+                        alt={step.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 45vw"
+                      />
+                    </div>
+                  </div>
                 </motion.div>
               );
             })}
