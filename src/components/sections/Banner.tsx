@@ -3,11 +3,20 @@
 export default function Banner() {
   return (
     <section className="relative w-full h-[70vh] md:h-[85vh] bg-[#141414] overflow-hidden">
-      {/* Placeholder — futuramente substituir por imagem */}
-      <div className="absolute inset-0 bg-[#141414]" />
+      {/* Vídeo de fundo com opacidade reduzida */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-30"
+      >
+        <source src="/6565564-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+      </video>
 
-      {/* Overlay gradient sutil para quando tiver imagem */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-transparent to-transparent opacity-60" />
+      {/* Overlay escuro + gradiente para garantir leitura dos textos */}
+      <div className="absolute inset-0 bg-[#141414]/50" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-[#141414]/40 to-transparent" />
 
       {/* Conteúdo do banner */}
       <div className="relative z-10 mx-auto w-[90%] md:w-[85%] max-w-[1440px] h-full flex flex-col justify-end pb-16 md:pb-24">
