@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Archivo_Black } from "next/font/google";
 import "./globals.css";
 import FloatingButtons from "@/components/ui/FloatingButtons";
 
@@ -9,11 +9,11 @@ const inter = Inter({
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const archivoBlack = Archivo_Black({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -52,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} font-[family-name:var(--font-inter)] antialiased bg-[#E3E2DE] text-[#141414]`}
+        className={`${inter.variable} ${archivoBlack.variable} font-[family-name:var(--font-inter)] antialiased bg-[#E3E2DE] text-[#141414]`}
         suppressHydrationWarning
       >
         {children}
