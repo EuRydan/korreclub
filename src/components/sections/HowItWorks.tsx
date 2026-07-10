@@ -1,9 +1,43 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform, type MotionValue } from "framer-motion";
 import Image from "next/image";
 import { DROP } from "@/lib/drop";
+
+function StepDot({ progress, index, total, number }: {
+  progress: MotionValue<number>;
+  index: number;
+  total: number;
+  number: string;
+}) {
+  const threshold = (index + 0.5) / (total + 1);
+
+  const bgColor = useTransform(
+    progress,
+    [threshold - 0.05, threshold],
+    ["#141414", "#1351AA"]
+  );
+
+  const shadowColor = useTransform(
+    progress,
+    [threshold - 0.05, threshold],
+    ["0 0 0 2px #C7C7C7", "0 0 0 2px #1351AA, 0 0 20px rgba(19,81,170,0.4)"]
+  );
+
+  return (
+    <div className="order-first md:order-2 flex justify-center relative z-10">
+      <motion.div
+        className="w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center border-4 border-[#E3E2DE] transition-colors"
+        style={{ backgroundColor: bgColor, boxShadow: shadowColor }}
+      >
+        <span className="font-[family-name:var(--font-display)] text-[#E3E2DE] text-sm md:text-base font-bold">
+          {number}
+        </span>
+      </motion.div>
+    </div>
+  );
+}
 
 export default function HowItWorks() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -98,14 +132,13 @@ export default function HowItWorks() {
                     )}
                   </div>
 
-                  {/* Center dot */}
-                  <div className="order-first md:order-2 flex justify-center relative z-10">
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#141414] flex items-center justify-center border-4 border-[#E3E2DE] shadow-[0_0_0_2px_#C7C7C7]">
-                      <span className="font-[family-name:var(--font-display)] text-[#E3E2DE] text-sm md:text-base font-bold">
-                        {step.number}
-                      </span>
-                    </div>
-                  </div>
+                  {/* Center dot — lights up when timeline reaches it */}
+                  <StepDot
+                    progress={scaleY}
+                    index={i}
+                    total={DROP.steps.length}
+                    number={step.number}
+                  />
 
                   {/* Image side */}
                   <div
